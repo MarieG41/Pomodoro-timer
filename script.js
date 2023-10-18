@@ -14,20 +14,39 @@ window.onload = () => {
 }
 
 function start() {
+    document.getElementById('start-count').style.display = "none";
+    document.getElementById('reset').style.display = "block";
     seconds = 59;
     let workMin = workTime - 1;
     let breakMin = breakTime - 1;
     breakCount = 0;
-
+    
     let timeFunction = () => {
         document.getElementById("minutes").innerHTML = workMin;
         document.getElementById("seconds").innerHTML = seconds;
+        
         seconds = seconds - 1;
+
+        if(seconds === 0) {
+            workMin = workMin - 1;
+            if(workMin === -1 ){
+                if(breakCount % 2 === 0) {
+                    // start break
+                    workMin = breakMin;
+                    breakCount++
+
+                    work.classList.remove('active');
+                    brea.classList.add('active');
+                }else {
+                    workMin = workTime;
+                    breakCount++
+
+                    brea.classList.remove("active");
+                    work.classList.add("active");
+                }
+            }
+            seconds = 59;
+        }
     }
-
     setInterval(timeFunction, 1000);
-}
-
-function reset(){
-
 }
