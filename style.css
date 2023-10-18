@@ -1,7 +1,7 @@
 :root{
     --background-color: #22181C;
     --text-color: #E4FDE1;
-    --shadows: #DF2A4E;
+    --shadows: #df2a8e;
     --elements: #17283B;
     --border: #A1B5D8;
 }
@@ -17,6 +17,8 @@ body{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     padding: 20px;
 }
@@ -26,31 +28,30 @@ h1{
     padding: 25px;
 }
 .panel{
+    width: 20rem;
     font-size: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
     padding: 10px;
-}
-#work{
     margin-right: 10px;
     border: 3px solid var(--border);
-    border-radius: 20px;
-    background-color: var(--border);
+    border-radius: 50px;
     padding: 10px 15px;
     -webkit-box-shadow: 0px 3px 28px 3px var(--border); 
     box-shadow: 0px 3px 28px 3px var(--border); 
-    color: var(--elements);
+    color: var(--border);
 }
-#break{
-    margin-left: 10px;
-    border: 3px solid var(--border);
-    border-radius: 20px;
-    background-color: var(--border);
-    padding: 10px 15px;
-    -webkit-box-shadow: 0px 3px 28px 3px var(--border); 
-    box-shadow: 0px 3px 28px 3px var(--border); 
-    color: var(--elements);
+p{
+    margin: 20px;
+}
+.panel p {
+    opacity: .5;
+    transition: 1s ease-in;
+}
+.panel p.active {
+    opacity: 1;
+    color: var(--color-secondary);
 }
 .timer{
     display: flex;
@@ -84,7 +85,7 @@ h1{
     margin-left: 40px;
 
 }
-#start{
+#start-count{
     margin-right: 10px;
     background-color: var(--elements);
     color: var(--text-color);
@@ -96,6 +97,9 @@ h1{
     -webkit-box-shadow: 0px 3px 28px 3px var(--shadows); 
     box-shadow: 0px 3px 28px 3px var(--shadows); 
     cursor: pointer; 
+}
+#start-count:hover{
+    background-color: var(--shadows);
 }
 #reset{
     border: 3px solid var(--shadows);
@@ -109,4 +113,7 @@ h1{
     -webkit-box-shadow: 0px 3px 28px 3px var(--shadows); 
     box-shadow: 0px 3px 28px 3px var(--shadows); 
     cursor: pointer;
+}
+#reset:hover{
+    background-color: var(--shadows);
 }
